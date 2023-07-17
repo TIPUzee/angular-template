@@ -1,0 +1,31 @@
+.menu {
+
+    &.skeleton {
+        background:
+            linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 35%, #ffffff 47%, rgba(255, 255, 255, 0) 59%, rgba(0, 0, 0, 0) 100%),
+            #eee;
+        ;
+        background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
+        animation: loading 1.5s infinite;
+    }
+
+    &.selected {
+        background-color: green;
+    }
+
+    &.isOpen .icon.angle-down {
+        display: none;
+    }
+
+    &:not(.isOpen) .icon.angle-up {
+        display: none;
+    }
+
+}
+
+
+@keyframes loading {
+    to {
+        background-position: 600px 0, 0 0, 300px 0, 0 0;
+    }
+}

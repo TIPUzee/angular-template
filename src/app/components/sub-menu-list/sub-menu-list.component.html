@@ -1,0 +1,7 @@
+<div #sub_menus_wrapper [id]="wrapper_id" class="sub-menu-list bg-linear-grey-light relative top-full left-0 w-full shadow-md rounded-lg mt-1 overflow-hidden" *ngIf="props.length != 0">
+    <div *ngFor="let sub_menu of props; let sub_menu_index = index;">
+        <div *ngIf="sub_menu_index == 0" class="mt-2"></div>
+        <app-menu-button [props]="sub_menu"></app-menu-button>
+        <div *ngIf="sub_menu_index + 1 == props.length" class="mb-2"></div>
+    </div>
+</div>

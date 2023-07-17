@@ -1,0 +1,19 @@
+<div #menu_item class="menu grid grid-flow-col items-center h-[42px] px-3 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-lg transition-colors duration-100 gap-3 hover:text-opacity-100 {{props? '' : 'skeleton'}} {{((props && props.grid) ? props.grid : gridDefault) |removeSpaces}} {{(props && props.subMenus) ? 'with-sub-menus' : ''}}" (click)="(props && props.subMenus) ? menu_item.classList.toggle('isOpen') : null">
+    <div *ngIf="props && props.icon" class="h-min text-md">
+        <fa-icon [icon]="props.icon"></fa-icon>
+    </div>
+    <div class="h-min w-full text-xs mb-[2px] font-medium overflow-hidden mr-[-3px]">
+        <div *ngIf="props && props.title" class="truncate">
+            {{ props.title | capitalize }}
+        </div>
+    </div>
+    <div class="h-min text-md pt-[2px]">
+        <ng-container *ngIf="props && props.subMenus">
+            <fa-icon class="icon angle-down" [icon]="angleDownIcon" *ngIf="props.subMenus.length != 0"></fa-icon>
+            <fa-icon class="icon angle-up" [icon]="angleUpIcon" *ngIf="props.subMenus.length != 0"></fa-icon>
+        </ng-container>
+    </div>
+</div>
+<ng-container *ngIf="props && props.subMenus && props.subMenus.length">
+    <app-sub-menu-list [props]="props.subMenus"></app-sub-menu-list>
+</ng-container>
